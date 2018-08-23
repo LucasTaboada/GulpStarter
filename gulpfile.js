@@ -25,11 +25,17 @@ gulp.task('browser-sync',['sass'],function(){
         }
     })
 })
-
+gulp.task('watch', function(){
+     gulp.watch('src/sass/**/*.scss',['sass',broswerSync.reload]);
+     gulp.watch('src/**/*.html',['html',broswerSync.reload]);
+     gulp.watch('public/*.html').on('change',broswerSync.reload);
+     
+})
 gulp.task('default', function(){
     gulp.start(
         'sass',
         'html',
         'browser-sync',
+        'watch'
         
 )})
