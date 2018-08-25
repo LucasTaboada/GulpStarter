@@ -30,6 +30,7 @@ gulp.task('scripts',function(){
     .src(['./src/js/**/*.js'])
     .pipe($.plumber())
     .pipe($.babel())
+    .pipe( $.uglify() )
     .pipe(gulp.dest('public/js'))
     .pipe(browserSync.reload({stream:true}));
 })
